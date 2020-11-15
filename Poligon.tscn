@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PathFind.gd" type="Script" id=1]
+[ext_resource path="res://assets/slime.png" type="Texture" id=2]
+[ext_resource path="res://Poligon.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 42.2875
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.639216, 0.4, 0.0235294, 1 )
+polygon = PoolVector2Array( 34.6526, 57.4629, 487.163, 32.1009, 640.67, 204.295, 708.747, 30.7661, 961.031, 38.7751, 997.072, 244.34, 993.068, 555.358, 914.312, 562.032, 920.986, 228.322, 878.271, 110.856, 794.176, 212.304, 866.258, 320.426, 786.167, 523.322, 572.593, 554.023, 571.258, 421.874, 691.394, 443.232, 762.14, 288.39, 676.711, 277.711, 639.335, 389.838, 548.566, 373.82, 575.263, 272.372, 444.448, 104.182, 476.485, 352.462, 381.711, 363.141, 338.996, 137.553, 76.0326, 122.87, 172.141, 347.123, 186.824, 204.295, 278.928, 189.612, 321.643, 383.164, 501.846, 408.526, 527.208, 570.041, 423.091, 551.354, 424.426, 459.25, 298.951, 448.571, 253.566, 356.467, 212.186, 464.589, 355.014, 558.028, 268.25, 588.729, 181.485, 508.639, 52.0055, 584.725, 31.9829, 481.942, 121.417, 459.25, 15.9648, 166.92, 5.28607, 61.4674 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 434.543, 315.081 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="slime" type="Sprite" parent="KinematicBody2D"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 95, 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+scale = Vector2( 0.3, 0.3 )
+shape = SubResource( 1 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
